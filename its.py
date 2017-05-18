@@ -10,6 +10,9 @@ System environment flags.
 
 import sys
 import struct
+import os
+import getpass
+import tempfile
 
 # -------
 # Pythons
@@ -96,3 +99,20 @@ bit64 = _void_ptr_size * 8 == 64
 # little vs. big endian
 little_endian = sys.byteorder == 'little'
 big_endian = sys.byteorder == 'big'
+
+
+# --------
+# Paths and environment
+# --------
+
+# PYTHONPATH
+python = sys.executable
+
+# $HOME
+homedir = os.path.expanduser('~')
+
+# tmp
+tmpdir = tempfile.gettempdir()
+
+# username
+username = getpass.getuser()
